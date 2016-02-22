@@ -43,6 +43,10 @@ struct cornmachine {
     mutating func insert(slot:Int, value:Int) {
         self.row[slot] = value
     }
+    //passes in a custom value to the slot
+    mutating func insertcurrent(value:Int) {
+        self.row[self.pointer] = value
+    }
     //increases the pointer
     mutating func incpointer() {
         self.pointer = increasepointer(self.pointer)
@@ -60,5 +64,35 @@ struct cornmachine {
         print(self.row[0], terminator:" ")
         print(self.row[1], terminator:" ")
         print(self.row[2])
+    }
+    
+    //sums to a number and sets the current cell to that
+    mutating func setsum() {
+        var total = 0
+        for elem in 1...self.row[self.pointer] {
+            total += elem
+        }
+        self.row[self.pointer] = total
+    }
+    //adds outer two slots to the middle
+    mutating func addtomiddle() {
+        self.row[1] += self.row[0] + self.row[2]
+    }
+    //subtracts middle cell from both sides
+    mutating func splittosides() {
+        self.row[0] -= self.row[1]
+        self.row[2] -= self.row[1]
+    }
+    //adds the value of the current cell to the left cell
+    mutating func addtoleft() {
+        self.row[decreasepointer(self.pointer)] += self.row[self.pointer]
+    }
+    //adds the value of the current cell to the right cell
+    mutating func addtoright() {
+        self.row[increasepointer(self.pointer)] += self.row[self.pointer]
+    }
+    //reverses the row
+    mutating func reverserow() {
+        self.row = self.row.reverse()
     }
 }

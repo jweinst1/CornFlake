@@ -12,6 +12,8 @@ print("The Corn Flake Interpreter")
 print("Written by Josh Weinstein")
 print("version 1.0.0")
 
+var interpreter = reader()
+
 while true {
     print("CF>", terminator:" ")
     var input = readLine()!
@@ -19,7 +21,7 @@ while true {
         break
     }
     else {
-        print("you typed \(input)")
+        interpreter.readline(input)
     }
 }
 

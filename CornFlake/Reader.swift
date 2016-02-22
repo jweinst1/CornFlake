@@ -27,6 +27,28 @@ struct reader {
                 self.machine.incrementcurrent()
             case "-":
                 self.machine.decrementcurrent()
+            case "p":
+                self.machine.printcurrent()
+            case "r":
+                self.machine.printrow()
+            case "~":
+                self.machine.reset()
+            case "!":
+                self.machine.resetpointer()
+            case "++":
+                self.machine.setsum()
+            case "<->":
+                self.machine.splittosides()
+            case "+>":
+                self.machine.addtoright()
+            case "<+":
+                self.machine.addtoleft()
+            case "1":
+                self.machine.insertcurrent(1)
+            case "2":
+                self.machine.insertcurrent(2)
+            case "3":
+                self.machine.insertcurrent(3)
             default:
                 print("Unknown Command")
             }
