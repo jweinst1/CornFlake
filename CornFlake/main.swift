@@ -8,5 +8,18 @@
 
 import Foundation
 
-print("Hello, World!")
+print("The Corn Flake Interpreter")
+print("Written by Josh Weinstein")
+print("version 1.0.0")
+
+while true {
+    print("CF>", terminator:" ")
+    var input = readLine()!
+    if input == "close" {
+        break
+    }
+    else {
+        print("you typed \(input)")
+    }
+}
 
