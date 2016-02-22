@@ -19,8 +19,14 @@ struct reader {
         let commands = line.componentsSeparatedByString(" ")
         for elem in commands {
             switch(elem) {
-                case ">":
-                    self.machine.incpointer()
+            case ">":
+                self.machine.incpointer()
+            case "<":
+                self.machine.decpointer()
+            case "+":
+                self.machine.incrementcurrent()
+            case "-":
+                self.machine.decrementcurrent()
             default:
                 print("Unknown Command")
             }
